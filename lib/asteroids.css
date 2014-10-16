@@ -1,0 +1,36 @@
+html, head, body, main, canvas {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+body {
+	overflow: hidden;
+	font-family: sans-serif;
+}
+
+canvas {
+	display: none;
+}
+
+canvas.playtime {
+	display: block;
+}
+
+main {
+	margin: 50px auto;
+	text-align: center;
+}
+
+h1 {
+	margin: auto;
+	width: 200px;
+	background: blue;
+	border: 10px solid darkblue;
+	color: white;
+}
+
+main.playtime {
+	display: none;
+}
+
