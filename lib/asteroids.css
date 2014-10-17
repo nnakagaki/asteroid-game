@@ -53,13 +53,19 @@ main.playtime {
 }
 
 .restart {
-	margin: auto;
-	width: 200px;
+  display: none;
+	margin: 20px auto;
+  text-align: center;
+	width: 150px;
 	background: blue;
 	border: 10px solid darkblue;
 	color: white;
 	position: absolute;
 	top: 0;
-	right: 0;
+	right: 20px;
+}
+
+.restart.paused {
+  display: block;
 }
 

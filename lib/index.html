@@ -45,8 +45,9 @@
       var ast = new Asteroids.GameView(ctx, canvasHeight, canvasWidth);
 
       $(".newGame").on("click", function () {
-        $("canvas").addClass("playtime");
-        $("main").addClass("playtime");
+        ast.game = new Asteroids.Game(canvasWidth, canvasHeight);
+        $("canvas").toggleClass("playtime");
+        $("main").toggleClass("playtime");
         menuAudio.pause();
         playAudio.oncanplaythrough = playAudio.play();
         ast.start();
