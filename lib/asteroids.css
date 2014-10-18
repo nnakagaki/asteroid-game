@@ -17,11 +17,11 @@ body {
 	font-family: sans-serif;
 }
 
-canvas {
+#game-canvas {
 	display: none;
 }
 
-canvas.playtime {
+#game-canvas.playtime {
 	display: block;
 	position: relative;
 }
@@ -31,7 +31,18 @@ main {
 	height: 100%;
 	text-align: center;
 	background: url(pics/outer-space.jpg);
+	position: relative;
 }
+
+#analyser_render {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+#analyser_render.playtime {
+	display: none;
+}
+
 
 main h1 {
 	margin: auto;
@@ -44,6 +55,15 @@ main h2 {
 	margin: 30px auto;
 	width: 200px;
 	background: blue;
+	border: 10px solid darkblue;
+	color: white;
+	cursor: default;
+}
+
+main h2:hover {
+	margin: 30px auto;
+	width: 200px;
+	background: #0080FF;
 	border: 10px solid darkblue;
 	color: white;
 }
