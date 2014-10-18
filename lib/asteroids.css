@@ -41,7 +41,7 @@ main h1 {
 }
 
 main h2 {
-	margin: auto;
+	margin: 30px auto;
 	width: 200px;
 	background: blue;
 	border: 10px solid darkblue;

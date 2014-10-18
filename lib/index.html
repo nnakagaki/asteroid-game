@@ -20,6 +20,7 @@
     <main>
       <h1 class="title">Asteroids</h1>
       <h2 class="newGame">New Game</h2>
+      <h2 class="newGame">Settings</h2>
     </main>
 
     <canvas id="game-canvas"></canvas>
@@ -33,18 +34,25 @@
           this.currentTime = 0;
           this.play();
         }, false);
+        playAudio.addEventListener('ended', function() {
+          this.currentTime = 0;
+          this.play();
+        }, false);
       menuAudio.oncanplaythrough = menuAudio.play();
 
     // misha mishenko - Vakning að elska
     // Misha Mishenko - Vor í mig
 
-      var canvasEl = document.getElementById("game-canvas");
-      var canvasHeight = canvasEl.height = window.innerHeight;
-      var canvasWidth = canvasEl.width = window.innerWidth;
-      var ctx = canvasEl.getContext("2d");
-      var ast = new Asteroids.GameView(ctx, canvasHeight, canvasWidth);
-
+      
       $(".newGame").on("click", function () {
+        window.canvasEl = document.getElementById("game-canvas");
+        window.canvasHeight = canvasEl.height = window.innerHeight;
+        window.canvasWidth = canvasEl.width = window.innerWidth;
+        window.ctx = canvasEl.getContext("2d");
+        if (typeof window.ast === "undefined") {
+          window.ast = new Asteroids.GameView(ctx, canvasHeight, canvasWidth);
+        }
+
         ast.game = new Asteroids.Game(canvasWidth, canvasHeight);
         $("canvas").toggleClass("playtime");
         $("main").toggleClass("playtime");
