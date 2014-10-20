@@ -61,11 +61,8 @@ main h2 {
 }
 
 main h2:hover {
-	margin: 30px auto;
-	width: 200px;
 	background: #0080FF;
 	border: 10px solid darkblue;
-	color: white;
 }
 
 main.playtime {
@@ -73,9 +70,10 @@ main.playtime {
 }
 
 .restart {
-  display: none;
+	cursor: default;
+  	display: none;
 	margin: 20px auto;
-  text-align: center;
+  	text-align: center;
 	width: 150px;
 	background: blue;
 	border: 10px solid darkblue;
@@ -85,7 +83,32 @@ main.playtime {
 	right: 20px;
 }
 
+.restart:hover {
+	background: #0080FF;
+}
+
 .restart.paused {
   display: block;
 }
 
+.main-menu {
+	cursor: default;
+  	display: none;
+	margin: 20px auto;
+  	text-align: center;
+	width: 150px;
+	background: blue;
+	border: 10px solid darkblue;
+	color: white;
+	position: absolute;
+	top: 60px;
+	right: 20px;
+}
+
+.main-menu:hover {
+	background: #0080FF;
+}
+
+.main-menu.paused {
+  display: block;
+}

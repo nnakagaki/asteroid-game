@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="jquery-2.1.1.js"></script>
   <script src="keymaster.js"></script>
   <script src="utils.js"></script>
   <script src="movingObject.js"></script>
@@ -10,7 +11,7 @@
   <script src="game.js"></script>
   <script src="gameView.js"></script>
   <script src="mouse.js"></script>
-  <script src="jquery-2.1.1.js"></script>
+  <script src="audioVisualizer.js"></script>
 
   <link rel="stylesheet" type="text/css" href="asteroids.css">
 
@@ -28,27 +29,27 @@
     <canvas id="game-canvas"></canvas>
 
     <h2 class="restart">Restart</h2>
+    <h2 class="main-menu">Main Menu</h2>
 
     <script>
-      var playAudio = new Audio("music/test.mp3");
+      var gameAudio = new Audio("music/test.mp3");
       var menuAudio = new Audio("music/menu.mp3")
         menuAudio.addEventListener('ended', function() {
           this.currentTime = 0;
           this.play();
         }, false);
-        playAudio.addEventListener('ended', function() {
+        gameAudio.addEventListener('ended', function() {
           this.currentTime = 0;
           this.play();
         }, false);
+
+      
+      Asteroids.Music.visualize(menuAudio);
       menuAudio.oncanplaythrough = menuAudio.play();
 
       // misha mishenko - Vakning að elska
       // Misha Mishenko - Vor í mig
-    </script>
 
-    <script src="audioVisualizer.js"></script>
-
-    <script>  
       $(".newGame").on("click", function () {
         window.canvasEl = document.getElementById("game-canvas");
         window.canvasHeight = canvasEl.height = window.innerHeight;
@@ -63,7 +64,8 @@
         $("canvas").toggleClass("playtime");
         $("main").toggleClass("playtime");
         menuAudio.pause();
-        playAudio.oncanplaythrough = playAudio.play();
+        menuAudio.currentTime = 0;
+        gameAudio.oncanplaythrough = gameAudio.play();
         ast.start();
       })
     </script>
