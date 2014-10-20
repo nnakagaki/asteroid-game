@@ -21,10 +21,11 @@
       <h1 class="title">Asteroids</h1>
       <h2 class="newGame">New Game</h2>
       <h2 class="setting">Settings</h2>
-      <canvas id="game-canvas"></canvas>
     </main>
 
     <canvas id="analyser_render"></canvas>
+
+    <canvas id="game-canvas"></canvas>
 
     <h2 class="restart">Restart</h2>
 
@@ -43,35 +44,11 @@
 
       // misha mishenko - Vakning að elska
       // Misha Mishenko - Vor í mig
+    </script>
 
-    window.addEventListener("load", initMp3Player, false);
-    function initMp3Player(){
-      var context = new AudioContext();
-      var analyser = context.createAnalyser();
-      var canvas = $('#analyser_render')[0];
-      var ctx = canvas.getContext('2d');
-      var source = context.createMediaElementSource(menuAudio);
-      source.connect(analyser);
-      analyser.connect(context.destination);
-      frameLooper(analyser, ctx, canvas); }
+    <script src="audioVisualizer.js"></script>
 
-    function frameLooper(analyser, ctx, canvas){ 
-      requestID = window.requestAnimationFrame(frameLooper.bind(null, analyser, ctx, canvas));
-      var fbc_array = new Uint8Array(analyser.frequencyBinCount);
-      analyser.getByteFrequencyData(fbc_array);
-      $('#analyser_render').height($("main").height() - 350)
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#00CCFF';
-      var bars = 100;
-      for (var i = 0; i < bars; i++) { 
-        var bar_x = i * Math.floor(canvas.width/bars);
-        var bar_width = 2;
-        var bar_height = -(fbc_array[i] * (Math.sqrt(($('#analyser_render').height())) / 50));
-         ctx.fillRect(bar_x, canvas.height, bar_width, bar_height);
-      }
-    }
-
-      
+    <script>  
       $(".newGame").on("click", function () {
         window.canvasEl = document.getElementById("game-canvas");
         window.canvasHeight = canvasEl.height = window.innerHeight;
