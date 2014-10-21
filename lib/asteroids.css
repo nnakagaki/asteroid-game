@@ -1,4 +1,4 @@
-html, head, body, main, canvas {
+html, div, head, body, main, canvas {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -15,6 +15,41 @@ body {
 	height: 100%;
 	overflow: hidden;
 	font-family: sans-serif;
+}
+
+div.score {
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background: rgba(255,255,255,0);
+  background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 70%, rgba(255,255,255,0) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,0)), color-stop(30%, rgba(0,0,0,1)), color-stop(70%, rgba(0,0,0,1)), color-stop(100%, rgba(255,255,255,0)));
+  background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 70%, rgba(255,255,255,0) 100%);
+  background: -o-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 70%, rgba(255,255,255,0) 100%);
+  background: -ms-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 70%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 70%, rgba(255,255,255,0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
+  transition: opacity 1s;
+}
+
+div.score.transition {
+  display: block;
+  opacity: 0;
+}
+
+div.score.gameover {
+  display: block;
+  opacity: 1;
+}
+
+div.score li.final-score {
+  display: none;
+}
+
+div.score li.final-score.gameover {
+  display: block;
 }
 
 #game-canvas {
