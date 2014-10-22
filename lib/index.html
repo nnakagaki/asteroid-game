@@ -30,6 +30,8 @@
     <div class="score">
       <ul>
         <li class="final-score"></li>
+        <li class="shots-fired"></li>
+        <li class="asteroids-destroyed"></li>
       </ul>
     </div>
 
@@ -37,27 +39,16 @@
     <h2 class="main-menu">Main Menu</h2>
 
     <script>
-      var gameAudio = new Audio("music/test.mp3");
-      var gameAudio2 = new Audio("music/the-island-madeon-remix.mp3");
-      var menuAudio = new Audio("music/menu.mp3");
-        menuAudio.addEventListener('ended', function() {
-          this.currentTime = 0;
-          this.play();
-        }, false);
-        gameAudio.addEventListener('ended', function() {
+      Asteroids.Music.gameAudio1 = new Audio("music/test.mp3");
+      Asteroids.Music.gameAudio2 = new Audio("music/the-island-madeon-remix.mp3");
+      Asteroids.Music.menuAudio = new Audio("music/menu.mp3");
+        Asteroids.Music.menuAudio.addEventListener('ended', function() {
           this.currentTime = 0;
           this.play();
         }, false);
 
-
-      Asteroids.Music.visualize(menuAudio);
-      menuAudio.oncanplaythrough = menuAudio.play();
-
-      setInterval(function () {
-        if (Math.floor(menuAudio.currentTime * 100 + 30) % 48 < 10) {
-          console.log("beat")
-        }
-      }, 20)
+      Asteroids.Music.visualize(Asteroids.Music.menuAudio);
+      Asteroids.Music.menuAudio.oncanplaythrough = Asteroids.Music.menuAudio.play();
 
       // misha mishenko - Vakning að elska
       // Misha Mishenko - Vor í mig
@@ -77,10 +68,17 @@
         $("canvas").toggleClass("playtime");
         $("main").toggleClass("playtime");
 
-        menuAudio.pause();
-        menuAudio.currentTime = 0;
-        gameAudio.currentTime = 4;
-        gameAudio.oncanplaythrough = gameAudio.play();
+        Asteroids.Music.menuAudio.pause();
+        Asteroids.Music.menuAudio.currentTime = 0;
+
+        ast.currGameAudio = Asteroids.Music.gameAudio1
+
+        ast.currGameAudio.currentTime = 4;
+        ast.currGameAudio.oncanplaythrough = ast.currGameAudio.play();
+        ast.currGameAudio.addEventListener('ended', function() {
+          this.currentTime = 0;
+          this.play();
+        }, false);
         ast.start();
       })
     </script>

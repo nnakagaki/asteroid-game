@@ -44,11 +44,18 @@ div.score.gameover {
   opacity: 1;
 }
 
-div.score li.final-score {
-  display: none;
+div.score li {
+  color: white;
+  margin-left: 35%;
+  margin-top: 20px;
 }
 
-div.score li.final-score.gameover {
+div.score li {
+  display: none;
+  font-size: 50px;
+}
+
+div.score li.gameover {
   display: block;
 }
 
