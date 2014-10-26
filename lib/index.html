@@ -13,6 +13,8 @@
   <script src="gameView.js"></script>
   <script src="mouse.js"></script>
   <script src="audioVisualizer.js"></script>
+  <script src="preloadImages.js"></script>
+  <script src="preloadMusic.js"></script>
 
   <link rel="stylesheet" type="text/css" href="asteroids.css">
 
@@ -22,7 +24,6 @@
       <h1 class="title">Asteroids</h1>
       <h2 class="newGame">New Game</h2>
       <h2 class="setting">Settings</h2>
-      <h1 class="image-test"></h1>
     </main>
 
     <canvas id="analyser_render"></canvas>
@@ -41,14 +42,6 @@
     <h2 class="main-menu">Main Menu</h2>
 
     <script>
-      Asteroids.Music.gameAudio1 = new Audio("music/test.mp3");
-      Asteroids.Music.gameAudio2 = new Audio("music/the-island-madeon-remix.mp3");
-      Asteroids.Music.menuAudio = new Audio("music/menu.mp3");
-        Asteroids.Music.menuAudio.addEventListener('ended', function() {
-          this.currentTime = 0;
-          this.play();
-        }, false);
-
       Asteroids.Music.visualize(Asteroids.Music.menuAudio);
       Asteroids.Music.menuAudio.oncanplaythrough = Asteroids.Music.menuAudio.play();
 
@@ -56,6 +49,31 @@
       // Misha Mishenko - Vor í mig
 
       $(".newGame").on("click", function () {
+        Asteroids.CacheCanvas = {};
+        var context, image;
+
+        var menu = Asteroids.CacheCanvas.menu = document.createElement('canvas');
+        menu.setAttribute('height', window.innerHeight);
+        menu.setAttribute('width', window.innerWidth);
+        context = menu.getContext('2d');
+        image = Asteroids.Images.menu;
+        context.drawImage(image,0,0,menu.width,
+                          image.height/image.width*menu.width);
+        var gameMode2 = Asteroids.CacheCanvas.gameMode2 = document.createElement('canvas');
+        gameMode2.setAttribute('height', window.innerHeight);
+        gameMode2.setAttribute('width', window.innerWidth);
+        context = gameMode2.getContext('2d');
+        image = Asteroids.Images.gameMode2;
+        context.drawImage(image,0,0,gameMode2.width,
+                          image.height/image.width*gameMode2.width);
+        var hugeAsteroid = Asteroids.CacheCanvas.hugeAsteroid = document.createElement('canvas');
+        hugeAsteroid.setAttribute('height', 1571);
+        hugeAsteroid.setAttribute('width', 1581);
+        context = hugeAsteroid.getContext('2d');
+        image = Asteroids.Images.hugeAsteroid;
+        context.drawImage(image,0,0,1581,1571);
+
+
         window.canvasEl = document.getElementById("game-canvas");
         window.canvasHeight = canvasEl.height = window.innerHeight;
         window.canvasWidth = canvasEl.width = window.innerWidth;
