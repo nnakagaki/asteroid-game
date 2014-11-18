@@ -2,7 +2,7 @@
 
 == live at my portfolio site at www.norrisnakagaki.com
 
-This app uses the canvas element to implement the game. the most recent version of the game is on my Porfolio site - github: https://github.com/nnakagaki/Portfolio.git
+This app uses the canvas element to implement the game. The most recent version of the game is on my Porfolio site - github: https://github.com/nnakagaki/Portfolio.git
 
 == To run locally
 * download zip-file or run <tt>git clone https://github.com/nnakagaki/asteroid-game.git</tt>
