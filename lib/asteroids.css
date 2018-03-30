@@ -154,3 +154,150 @@ main.playtime {
 .main-menu.paused {
   display: block;
 }
+
+.asteroids-game {
+  position: fixed;
+  overflow: hidden;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  height: 80vh;
+  width: 80vw;
+  margin: 10vh 10vw 10vh 10vw;
+  border-radius: 10px;
+
+  div.score {
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background: rgba(255,255,255,0);
+    background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 70%, rgba(255,255,255,0) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,0)), color-stop(30%, rgba(0,0,0,1)), color-stop(70%, rgba(0,0,0,1)), color-stop(100%, rgba(255,255,255,0)));
+    background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 70%, rgba(255,255,255,0) 100%);
+    background: -o-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 70%, rgba(255,255,255,0) 100%);
+    background: -ms-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 70%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 70%, rgba(255,255,255,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
+    transition: opacity 1s;
+
+    &.transition {
+      display: block;
+      opacity: 0;
+    }
+
+    &.gameover {
+      display: block;
+      opacity: 1;
+    }
+
+    li {
+      color: white;
+      margin-left: 35%;
+      margin-top: 20px;
+      display: none;
+      font-size: 50px;
+
+      &.gameover {
+        display: block;
+      }
+    }
+  }
+
+  #game-canvas {
+    display: none;
+  }
+
+  #game-canvas.playtime {
+    display: block;
+    position: relative;
+  }
+
+  #analyser_render {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  #analyser_render.playtime {
+    display: none;
+  }
+
+  main {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: image-url('outer-space.jpg');
+    position: relative;
+    padding: 0;
+
+    h1 {
+      margin: auto;
+      padding: 50px;
+      width: 200px;
+      color: white;
+    }
+
+    h2 {
+      margin: 30px auto;
+      width: 200px;
+      background: blue;
+      border: 10px solid darkblue;
+      color: white;
+      cursor: default;
+
+      &:hover {
+        background: #0080FF;
+        border: 10px solid darkblue;
+      }
+    }
+
+    &.playtime {
+      display: none;
+    }
+  }
+
+  .restart {
+    cursor: default;
+    display: none;
+    margin: 20px auto;
+    text-align: center;
+    width: 150px;
+    background: blue;
+    border: 10px solid darkblue;
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 20px;
+
+    &:hover {
+      background: #0080FF;
+    }
+
+    &.paused {
+      display: block;
+    }
+  }
+
+  .main-menu {
+    cursor: default;
+    display: none;
+    margin: 20px auto;
+    text-align: center;
+    width: 150px;
+    background: blue;
+    border: 10px solid darkblue;
+    color: white;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+
+    &:hover {
+      background: #0080FF;
+    }
+
+    &.paused {
+      display: block;
+    }
+  }
+}

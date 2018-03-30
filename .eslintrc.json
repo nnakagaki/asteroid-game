@@ -1,0 +1,13 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "jquery": true
+  },
+  "rules": {
+    "no-var": 0,
+    "no-undef": 0,
+    "new-cap": [2, { "newIsCap": true, "properties": false }]
+  }
+}
